@@ -1,0 +1,1 @@
+import "./Fail.module.css";

@@ -1,0 +1,1 @@
+import "./Completed.module.css";

@@ -1,0 +1,9 @@
+.completedTasksWrapper {
+}
+.completedTask {
+  color: green;
+  min-width: 450px;
+  max-width: 450px;
+  background-color: white;
+  border-radius: 0.375rem;
+}

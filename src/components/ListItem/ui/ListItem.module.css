@@ -8,14 +8,12 @@
   margin-bottom: 0.875rem;
   /* color: black; */
 }
-.taskConditionWrapper {
-  display: flex;
-  gap: 0.5rem;
-}
+
 .taskWrapper span {
   color: black;
   font-size: 1.125rem;
 }
+/* Как исправить цвет у таймера */
 .taskWrapper div > div {
   color: red;
 }

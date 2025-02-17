@@ -1,26 +1,28 @@
 import React from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import styled from "./CircleTimer.module.css";
-import { useCountdown } from "react-countdown-circle-timer";
 
-const CircleTimer = ({ duration }) => {
+const CircleTimer = ({ task, isPlaying, onFail }) => {
   const children = ({ remainingTime }) => {
-    const minutes = Math.floor(remainingTime / 60);
+    const hours = Math.floor(remainingTime / 3600);
+    const minutes = Math.floor((remainingTime % 3600) / 60);
     const seconds = remainingTime % 60;
-    return `${minutes}:${seconds}`;
+    if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+      onFail(task.id);
+    }
+    return `${hours}:${minutes}:${seconds}`;
   };
-  // const duration = 10;
   return (
     <CountdownCircleTimer
-      isPlaying
-      duration={duration}
+      isPlaying={isPlaying}
+      duration={task.duration}
       // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
       colors={["#1e08a8", "#1e08a8", "#1e08a8", "#1e08a8"]}
       colorsTime={[7, 5, 2, 0]}
       // colorsTime={[10, 1, 1, 0]}
-      size={50}
+      size={58}
       children={children}
-      strokeWidth={4}
+      strokeWidth={3}
       trailColor="#A30000"
     ></CountdownCircleTimer>
   );

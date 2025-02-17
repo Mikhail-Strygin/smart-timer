@@ -6,12 +6,12 @@ import Fail from "../../Fail/ui/Fail";
 import Completed from "../../Completed/ui/Completed";
 
 function App() {
-  const duration = 10;
-  const [tasks, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
+
   // Проверяем правильность заполнения названия задачи и времени выполнения
   const checkParametrs = (title, duration) => {
     if (title != "" && Number(duration)) {
-      console.log(Number(duration));
+      // console.log(Number(duration));
       //если всё правильно добавляем задачу
       addTask(title, duration);
     } else {
@@ -26,20 +26,57 @@ function App() {
     } else if (tasks.length == 0) {
       id = tasks.length;
     }
-    const newTask = { id: id, title: title, duration: duration };
+    const newTask = {
+      id: id,
+      title: title,
+      duration: duration,
+      completed: false,
+      fail: false,
+    };
     const newTasks = [...tasks];
     newTasks.push(newTask);
-    setTask(newTasks);
-    console.log(newTasks);
+    setTasks(newTasks);
+    // console.log(newTasks);
+  };
+  const completedHandler = (id) => {
+    const ind = tasks.findIndex((item) => {
+      return item.id == id;
+    });
+    const newTasks = [...tasks];
+    newTasks[ind].completed = !newTasks[ind].completed;
+    setTasks(newTasks);
+  };
+  const deleteHandler = (id) => {
+    const ind = tasks.findIndex((item) => {
+      return item.id == id;
+    });
+    const newTasks = [...tasks];
+    newTasks.splice(ind, 1);
+    setTasks(newTasks);
   };
 
+  const failHandler = (id) => {
+    const ind = tasks.findIndex((item) => {
+      return item.id == id;
+    });
+    const newTasks = [...tasks];
+    if (newTasks[ind].fail == false) {
+      newTasks[ind].fail = true;
+      setTasks(newTasks);
+    }
+  };
   return (
     <div>
       <CreateFieldTasks onClick={checkParametrs} />
-      <List duration={duration} />
+      <List
+        tasks={tasks}
+        onCompleted={completedHandler}
+        onDelete={deleteHandler}
+        onFail={failHandler}
+      />
       <div className={styled.condition}>
-        <Completed />
-        <Fail />
+        <Completed tasks={tasks} />
+        <Fail tasks={tasks} />
       </div>
     </div>
   );

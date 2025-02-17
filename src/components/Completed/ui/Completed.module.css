@@ -1,9 +1,20 @@
 .completedTasksWrapper {
+  display: flex;
+  width: 450px;
+  /* justify-content: center; */
+  flex-direction: column;
+  /* border: 1px solid black; */
+  gap: 0.375rem;
 }
-.completedTask {
+
+/* .completedTask {
   color: green;
   min-width: 450px;
   max-width: 450px;
   background-color: white;
   border-radius: 0.375rem;
+} */
+.completedTasksWrapper .header {
+  color: black;
+  margin: 0;
 }

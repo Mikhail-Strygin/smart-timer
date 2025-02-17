@@ -1,12 +1,17 @@
 import styled from "./Completed.module.css";
 import React from "react";
+import CompletedItem from "../../CompletedItem/ui/CompletedItem";
 
-const Completed = () => {
+const Completed = ({ tasks }) => {
+  // console.log(tasks);
+  const items = tasks.map((task) =>
+    task.completed ? <CompletedItem key={task.id} task={task} /> : ""
+  );
+  // console.log(items);
   return (
     <div className={styled.completedTasksWrapper}>
-      <h2>Выполненные</h2>
-      <p className={styled.completedTask}>Встать на работу</p>
-      <p className={styled.completedTask}>Отвести ребенка в садик</p>
+      <h2 className={styled.header}>Выполненные</h2>
+      {items}
     </div>
   );
 };

@@ -5,6 +5,10 @@ import React from "react";
 const CreateFieldTasks = ({ onClick }) => {
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
+  const clearInput = () => {
+    setDuration("");
+    setTitle("");
+  };
 
   return (
     <div className={styled.createFieldTasksWrapper}>

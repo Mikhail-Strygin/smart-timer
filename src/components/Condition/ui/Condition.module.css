@@ -1,0 +1,20 @@
+.taskConditionWrapper {
+  display: flex;
+  gap: 0.5rem;
+  /* color: red; */
+  /* display: none; */
+}
+.taskConditionBtn {
+  background: none;
+  border: none;
+}
+
+.taskConditionBtn:active {
+  transform: scale(90%);
+}
+.hidden {
+  display: none;
+}
+.active {
+  display: inline-block;
+}

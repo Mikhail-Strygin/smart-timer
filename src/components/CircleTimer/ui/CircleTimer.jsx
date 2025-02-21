@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
-import styled from "./CircleTimer.module.css";
 
 const CircleTimer = ({ task, isPlaying, onFail }) => {
   const children = ({ remainingTime }) => {
     const hours = Math.floor(remainingTime / 3600);
     const minutes = Math.floor((remainingTime % 3600) / 60);
     const seconds = remainingTime % 60;
-    if (hours <= 0 && minutes <= 0 && seconds <= 0) {
-      onFail(task.id);
-    }
+    // if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+    //   onFail(task.id);
+    // }
+    useEffect(() => {
+      remainingTime <= 0 && onFail(task.id);
+    }, [remainingTime]);
     return `${hours}:${minutes}:${seconds}`;
   };
   return (

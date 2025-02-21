@@ -60,6 +60,7 @@ function App() {
       return item.id == id;
     });
     const newTasks = [...tasks];
+    console.log(newTasks);
     if (newTasks[ind].fail == false) {
       newTasks[ind].fail = true;
       setTasks(newTasks);

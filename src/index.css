@@ -11,12 +11,12 @@
   display: flex;
   justify-content: center;
   text-align: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   height: 100%;
   align-items: center;
 }
 :root {
-  background-image: url("./background-image.jpg");
+  background-image: url("../public/background_image.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }

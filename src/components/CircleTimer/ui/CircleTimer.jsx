@@ -17,7 +17,7 @@ const CircleTimer = ({ task, isPlaying, onFail }) => {
   return (
     <CountdownCircleTimer
       isPlaying={isPlaying}
-      duration={task.duration}
+      duration={task.duration * 60}
       // colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
       colors={["#1e08a8", "#1e08a8", "#1e08a8", "#1e08a8"]}
       colorsTime={[7, 5, 2, 0]}

@@ -10,7 +10,7 @@ function App() {
 
   // Проверяем правильность заполнения названия задачи и времени выполнения
   const checkParametrs = (title, duration) => {
-    if (title != "" && Number(duration) && Number(duration >= 0) {
+    if (title != "" && Number(duration) && Number(duration) >= 0 {
       // console.log(Number(duration));
       //если всё правильно добавляем задачу
       addTask(title, duration);
